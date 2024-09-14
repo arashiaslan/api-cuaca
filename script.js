@@ -15,6 +15,8 @@ async function checkWeather(city) {
     document.querySelector(".info-kelembapan").innerHTML = data.main.humidity + "%";
     document.querySelector(".info-angin").innerHTML = data.wind.speed + "Km/h";
 
+    image.classList.remove("active");
+
     if (data.weather[0].main == "Clouds") {
         image.src = "img/1.png";
         cuaca.innerHTML = "Berawan";
@@ -34,6 +36,11 @@ async function checkWeather(city) {
         image.src = "img/3.png";
         cuaca.innerHTML = "Salju";
     }
+
+    setTimeout(() => {
+        image.classList.add("active");
+    }, 300);
+    
 
 }
 
